@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <h2>Sign up</h2>
+
+  
+  {% for message in form.Members_Email.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.Members_Password.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %} 
+  
+  {% for message in form.confirm.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %} 
+
+  {% for message in form.Members_First_Name.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+   
+  {% for message in form.Members_Last_Name.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+
+
+   
+  <form action="{{ url_for('signup') }}" method=post>
+    {{ form.hidden_tag() }}
+          
+    {{ form.Members_Email.label }}
+    {{ form.Members_Email }}
+    
+    {{ form.Members_Password.label }}
+    {{ form.Members_Password }}
+      
+    {{ form.confirm.label }}
+    {{ form.confirm }}
+    
+    {{ form.Members_First_Name.label }}
+    {{ form.Members_First_Name }}
+     
+    {{ form.Members_Last_Name.label }}
+    {{ form.Members_Last_Name }}
+     
+    {{ form.submit }}
+  </form>
+     
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <h2>Sign In</h2>
+ 
+  {% for message in form.Members_Email.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.Members_Password.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  <form action="{{ url_for('signin') }}" method=post>
+    {{ form.hidden_tag() }}
+     
+    {{ form.Members_Email.label }}
+    {{ form.Members_Email }}
+     
+    {{ form.Members_Password.label }}
+    {{ form.Members_Password }}
+     
+    {{ form.submit }}
+  </form>
+     
+{% endblock %}
